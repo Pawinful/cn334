@@ -5,7 +5,6 @@ import { Heart, ShoppingCart } from 'lucide-react'
 import useAuth from '../../../../hooks/useAuth'
 import { useEffect, useState } from 'react'
 import useAxiosAuth from '../../../../hooks/useAxiosAuth'
-import Image from 'next/image'
 
 export default function ProductPage() {
   const loading = useAuth()

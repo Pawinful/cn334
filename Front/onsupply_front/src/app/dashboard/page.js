@@ -34,7 +34,7 @@ export default function UserDashboard() {
     }
 
     fetchAll()
-  }, [api])
+  }, [])
 
   if (loading) return null 
   return (

@@ -30,7 +30,7 @@ export default function WishlistPage() {
     }
 
     fetchAll()
-  }, [api])
+  }, [])
 
   const handleRemove = async (id) => {
     try {
