@@ -4,6 +4,7 @@ import useAuth from "../../../hooks/useAuth"
 import { useEffect, useState } from "react"
 import useAxiosAuth from "../../../hooks/useAxiosAuth"
 import { useRouter } from "next/navigation"
+import Image from 'next/image'
 
 export default function CartPage() {
   const loading = useAuth()
@@ -30,7 +31,7 @@ export default function CartPage() {
     }
 
     fetchAll()
-  }, [])
+  }, [api])
 
   const handleRemove = async (id) => {
     try {
@@ -47,7 +48,6 @@ export default function CartPage() {
   return (
     <div className="font-sans px-4 py-4">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-6">
-        {/* รายการคอร์ส */}
         <div className="md:col-span-2">
           <h2 className="text-xl font-semibold mb-4">คอร์สที่เลือก</h2>
           <div className="space-y-4">
@@ -58,7 +58,7 @@ export default function CartPage() {
               return (
                 <div key={item.id} className="flex items-center justify-between border-b pb-3">
                   <div className="flex items-center space-x-4">
-                    <img src={courseDetail.image} alt={courseDetail.title} className="w-24 h-24 object-cover rounded-md" />
+                    <Image src={courseDetail.image} alt={courseDetail.title} className="w-24 h-24 object-cover rounded-md" />
                     <div>
                       <div className="font-medium text-gray-800">{courseDetail.title}</div>
                       <div className="text-sm text-gray-500">จำนวน: 1</div>
@@ -79,11 +79,9 @@ export default function CartPage() {
           </div>
         </div>
 
-        {/* สรุปคำสั่งซื้อ */}
         <div className="border border-gray-300 rounded-md p-6 w-auto h-fit">
             <h3 className="text-lg font-semibold mb-4">สรุปคำสั่งซื้อ</h3>
 
-            {/* คำนวณราคาทั้งหมดจากข้อมูลที่ผูกกับ cart */}
             {(() => {
                 const shippingFee = 0
                 const totalPrice = cart.reduce((sum, item) => {

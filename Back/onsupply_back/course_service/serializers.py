@@ -9,10 +9,10 @@ class CourseSerializer(serializers.ModelSerializer):
 class EnrollmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Enrollment
-        fields = ['id', 'course', 'enrolled_at']  # ✅ ไม่ต้องใส่ user ใน fields
+        fields = ['id', 'course', 'enrolled_at']
 
     def create(self, validated_data):
-        user = self.context['request'].user  # ✅ ดึง user จาก context
+        user = self.context['request'].user
         return Enrollment.objects.create(user=user, **validated_data)
 
 class CartItemSerializer(serializers.ModelSerializer):
@@ -21,7 +21,7 @@ class CartItemSerializer(serializers.ModelSerializer):
         fields = ['id', 'course', 'added_at']
         
     def create(self, validated_data):
-        user = self.context['request'].user  # ✅ ดึง user จาก context
+        user = self.context['request'].user
         return CartItem.objects.create(user=user, **validated_data)
 
 class FavouriteCourseSerializer(serializers.ModelSerializer):
@@ -30,5 +30,5 @@ class FavouriteCourseSerializer(serializers.ModelSerializer):
         fields = ['id', 'course', 'marked_at']
         
     def create(self, validated_data):
-        user = self.context['request'].user  # ✅ ดึง user จาก context
+        user = self.context['request'].user
         return FavouriteCourse.objects.create(user=user, **validated_data)

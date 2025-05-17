@@ -1,4 +1,3 @@
-# ✅ course_service/views.py
 from rest_framework import viewsets, permissions, response, status
 from .models import Course, Enrollment, CartItem, FavouriteCourse
 from .serializers import (
@@ -36,7 +35,6 @@ class CartItemViewSet(viewsets.ModelViewSet):
     def get_serializer_context(self):
         return {'request': self.request}
 
-    # ✅ override destroy method
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
         self.perform_destroy(instance)
@@ -56,7 +54,6 @@ class FavouriteCourseViewSet(viewsets.ModelViewSet):
     def get_serializer_context(self):
         return {'request': self.request}
 
-    # ✅ override destroy method
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
         self.perform_destroy(instance)

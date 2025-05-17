@@ -1,4 +1,3 @@
-// ✅ 7. app/graphic-card/page.js
 'use client'
 
 import { useEffect, useState } from 'react'
@@ -6,6 +5,7 @@ import { Heart} from 'lucide-react'
 import useAuth from '../../../hooks/useAuth'
 import useAxiosAuth from '../../../hooks/useAxiosAuth'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 
 export default function CataloguePage() {
   const api = useAxiosAuth()
@@ -32,7 +32,7 @@ export default function CataloguePage() {
     }
 
     fetchCourses()
-  }, [])
+  }, [api])
 
   const handleLike = async (id) => {
   const isFavourited = favourite.includes(id)
@@ -56,12 +56,11 @@ export default function CataloguePage() {
   if(loadings) return <p className="text-center w-full">Loading....</p>
   return (
     <div className="font-sans px-4">
-      {/* Product Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {course.map((item, index) => (
           <div key={index} className="border border-gray-200 p-4 rounded-lg hover:shadow-sm transition-shadow cursor-pointer">
             <div className="w-full aspect-[4/3] overflow-hidden flex items-center justify-center">
-              <img src={item.image} alt={item.title} className="max-w-full max-h-full object-contain" onClick={() => {router.push(`/products/${item.id}/`)}} />
+              <Image src={item.image} alt={item.title} className="max-w-full max-h-full object-contain" onClick={() => {router.push(`/products/${item.id}/`)}} />
             </div>
             <div className="mt-3 text-xl font-bold text-gray-800" onClick={() => {router.push(`/products/${item.id}/`)}}>{item.title}</div>
             <div className="flex justify-between items-center mt-2">

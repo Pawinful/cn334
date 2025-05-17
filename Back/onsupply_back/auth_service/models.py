@@ -1,8 +1,6 @@
-# auth_service/models.py
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
 
-# ✅ Custom User Manager
 class UserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
         if not email:
@@ -24,7 +22,6 @@ class UserManager(BaseUserManager):
 
         return self.create_user(email, password, **extra_fields)
 
-# ✅ Custom User Model
 class User(AbstractUser):
     username = None
     objects = UserManager()

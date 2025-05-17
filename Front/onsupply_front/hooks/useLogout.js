@@ -18,15 +18,14 @@ export default function useLogout() {
 
       await api.post('/auth/logout/', payload, { headers })
 
-      // ✅ ล้าง token และ redirect
       localStorage.removeItem('access_token')
       localStorage.removeItem('refresh_token')
       router.push('/auth/login')
     } catch (err) {
       console.log('Logout failed:', err.message)
-      router.push('/') // fallback redirect
+      router.push('/')
     }
   }
 
-  return logout // ✅ ต้อง return ฟังก์ชันนี้ทันที
+  return logout
 }

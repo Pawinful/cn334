@@ -1,10 +1,10 @@
-// ✅ 11. app/register/page.js
 'use client'
 
 import { useEffect, useState } from 'react'
 import useAuth from '../../../hooks/useAuth'
 import useAxiosAuth from '../../../hooks/useAxiosAuth'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 
 export default function CourseRegistrationPage() {
   const loading = useAuth()
@@ -31,7 +31,7 @@ export default function CourseRegistrationPage() {
     }
 
     fetchAll()
-  }, [])
+  }, [api])
     
   
   const [formData, setFormData] = useState({
@@ -68,15 +68,12 @@ export default function CourseRegistrationPage() {
     }
 
     try {
-      // 2. สมัครเรียนทุกคอร์สใน cart
       for (const item of cart) {
         await api.post('/enrollments/', { course: item.course })
       }
-      // 3. ลบ cart ทุกรายการ
       for (const item of cart) {
         await api.delete(`/cart/${item.id}/`)
       }
-      // 4. เคลียร์ form
       setFormData({
         payment: '',
         receipt: null,
@@ -94,7 +91,6 @@ export default function CourseRegistrationPage() {
     <div className="font-sans px-10 py-10 max-w-4xl mx-auto bg-white shadow-lg rounded-2xl">
       <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">สมัครเรียนคอร์สออนไลน์</h1>
 
-      {/* Course Summary */}
       <div className="mb-8 bg-gray-50 border border-gray-200 rounded-xl p-6">
         <h2 className="text-xl font-semibold mb-4 text-gray-800">คอร์สที่คุณเลือก</h2>
         <ul className="space-y-2 text-gray-700">
@@ -123,7 +119,7 @@ export default function CourseRegistrationPage() {
 
         <div className="text-center">
           <label className="block mb-2 font-medium text-gray-700">QR Code สำหรับการชำระเงิน</label>
-          <img src="/qrcode.jpg" alt="QR Code" className="mx-auto w-64 object-contain border rounded-2xl" />
+          <Image src="/qrcode.jpg" alt="QR Code" className="mx-auto w-64 object-contain border rounded-2xl" />
         </div>
 
         <button type="submit" className="w-full bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition duration-200" onClick={(e) => handleEnroll(e)}>

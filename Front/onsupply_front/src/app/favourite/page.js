@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { Heart } from 'lucide-react'
 import useAuth from '../../../hooks/useAuth'
 import useAxiosAuth from '../../../hooks/useAxiosAuth'
+import Image from 'next/image'
 
 export default function WishlistPage() {
   const loading = useAuth()
@@ -29,7 +30,7 @@ export default function WishlistPage() {
     }
 
     fetchAll()
-  }, [])
+  }, [api])
 
   const handleRemove = async (id) => {
     try {
@@ -58,9 +59,8 @@ export default function WishlistPage() {
                   key={idx}
                   className="flex flex-col sm:flex-row sm:justify-between sm:items-center border-b pb-4 gap-4 px-5"
                 >
-                  {/* Left: Image + Info */}
                   <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                    <img
+                    <Image
                       src={courseDetail.image || '/cpu.jpg'}
                       alt={courseDetail.title}
                       className="w-24 h-24 object-cover rounded-md"
@@ -74,7 +74,6 @@ export default function WishlistPage() {
                     </div>
                   </div>
 
-                {/* Right: Price + Actions */}
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6">
                   <div className="text-left sm:text-right">
                     <div className="font-semibold text-gray-700">

@@ -34,23 +34,13 @@ export default function UserDashboard() {
     }
 
     fetchAll()
-  }, [])
-  
-  const myCourses = [
-    { name: 'Frontend Development Bootcamp', status: 'paid', date: '2025-05-01' },
-    { name: 'UI/UX Design for Beginners', status: 'pending', date: '2025-05-02' },
-  ]
+  }, [api])
 
-  const cartCourses = [
-    { name: 'React & Tailwind Mastery', price: 1900 },
-    { name: 'Advanced Node.js', price: 2200 },
-  ]
   if (loading) return null 
   return (
     <div className="font-sans px-4 sm:px-6 lg:px-10 py-10 w-full max-w-screen-xl mx-auto space-y-10">
       <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">แดชบอร์ดของฉัน</h1>
 
-      {/* Section: Course List */}
       <div className="bg-white border rounded-xl shadow p-4 sm:p-6 overflow-x-auto">
         <h2 className="text-lg sm:text-xl font-semibold text-gray-700 mb-4">📚 คอร์สที่ลงทะเบียนไว้</h2>
         <table className="min-w-full table-auto">
@@ -79,7 +69,6 @@ export default function UserDashboard() {
         </table>
       </div>
 
-      {/* Section: Cart Courses */}
       <div className="bg-white border rounded-xl shadow p-4 sm:p-6">
         <h2 className="text-lg font-semibold text-gray-800 mb-4">🛒 คอร์สในตะกร้า</h2>
         <ul className="space-y-4">
