@@ -5,6 +5,7 @@ import { Download, UploadCloud, ShoppingCart } from 'lucide-react'
 import useAuth from '../../../hooks/useAuth'
 import useAxiosAuth from '../../../hooks/useAxiosAuth'
 import { useRouter } from 'next/navigation'
+import moment from 'moment'
 
 export default function UserDashboard() {
   const loading = useAuth()
@@ -59,7 +60,7 @@ export default function UserDashboard() {
               return (
                 <tr key={index} className="border-t text-sm sm:text-base">
                   <td className="py-3 px-4 whitespace-nowrap">{courseDetail.title}</td>
-                  <td className="py-3 px-4 whitespace-nowrap">{item.enrolled_at}</td>
+                  <td className="py-3 px-4 whitespace-nowrap">{moment(item.enrolled_at).format('YYYY-MM-DD HH:mm')}</td>
                   <td className="py-3 px-4 whitespace-nowrap">
                       <a href="https://anywhere.learn.co.th/" className="text-gray-600 hover:text-blue-700 hover:underline text-sm">Course Link</a>
                   </td>
