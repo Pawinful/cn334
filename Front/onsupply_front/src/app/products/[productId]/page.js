@@ -84,7 +84,7 @@ export default function ProductPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-6 items-start">
         <div className="w-full aspect-[4/3] bg-gray-100 rounded flex items-center justify-center">
-          <Image
+          <img
             src={course.image}
             alt={course.title}
             className="max-w-full max-h-full object-contain p-4"

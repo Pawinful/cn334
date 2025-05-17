@@ -60,7 +60,7 @@ export default function CataloguePage() {
         {course.map((item, index) => (
           <div key={index} className="border border-gray-200 p-4 rounded-lg hover:shadow-sm transition-shadow cursor-pointer">
             <div className="w-full aspect-[4/3] overflow-hidden flex items-center justify-center">
-              <Image src={item.image} alt={item.title} className="max-w-full max-h-full object-contain" onClick={() => {router.push(`/products/${item.id}/`)}} />
+              <img src={item.image} alt={item.title} className="max-w-full max-h-full object-contain" onClick={() => {router.push(`/products/${item.id}/`)}} />
             </div>
             <div className="mt-3 text-xl font-bold text-gray-800" onClick={() => {router.push(`/products/${item.id}/`)}}>{item.title}</div>
             <div className="flex justify-between items-center mt-2">

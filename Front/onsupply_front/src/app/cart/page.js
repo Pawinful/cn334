@@ -58,7 +58,7 @@ export default function CartPage() {
               return (
                 <div key={item.id} className="flex items-center justify-between border-b pb-3">
                   <div className="flex items-center space-x-4">
-                    <Image src={courseDetail.image} alt={courseDetail.title} className="w-24 h-24 object-cover rounded-md" />
+                    <img src={courseDetail.image} alt={courseDetail.title} className="w-24 h-24 object-cover rounded-md" />
                     <div>
                       <div className="font-medium text-gray-800">{courseDetail.title}</div>
                       <div className="text-sm text-gray-500">จำนวน: 1</div>

@@ -119,7 +119,7 @@ export default function CourseRegistrationPage() {
 
         <div className="text-center">
           <label className="block mb-2 font-medium text-gray-700">QR Code สำหรับการชำระเงิน</label>
-          <Image src="/qrcode.jpg" alt="QR Code" className="mx-auto w-64 object-contain border rounded-2xl" />
+          <img src="/qrcode.jpg" alt="QR Code" className="mx-auto w-64 object-contain border rounded-2xl" />
         </div>
 
         <button type="submit" className="w-full bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition duration-200" onClick={(e) => handleEnroll(e)}>

@@ -60,7 +60,7 @@ export default function WishlistPage() {
                   className="flex flex-col sm:flex-row sm:justify-between sm:items-center border-b pb-4 gap-4 px-5"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                    <Image
+                    <img
                       src={courseDetail.image || '/cpu.jpg'}
                       alt={courseDetail.title}
                       className="w-24 h-24 object-cover rounded-md"
