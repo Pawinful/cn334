@@ -30,9 +30,6 @@ Front/onsupply_front/yarn-debug.log*
 Front/onsupply_front/yarn-error.log*
 Front/onsupply_front/.pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-Front/onsupply_front/.env*
-
 # vercel
 .vercel
 
