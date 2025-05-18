@@ -6,7 +6,7 @@ ENV PYTHONUNBUFFERED 1
 
 WORKDIR /app
 
-COPY requirements.txt .
+COPY onsupply_back/requirements.txt .
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
 COPY . .
